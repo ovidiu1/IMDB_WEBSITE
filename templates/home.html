@@ -57,7 +57,13 @@
 	<div id="webpage"> 
 		<div id="header">
 			<div>
+
+			{% if value %}
+				<p style="text-align:right; margin-right: 44px;"> {{ value }} </p>
+			{% else %}
 				<p style="text-align:right; margin-right: 44px;"> <a href="/login"> Login</a></p>
+			{% endif %}
+
 			</div>
 			
 		</div>
