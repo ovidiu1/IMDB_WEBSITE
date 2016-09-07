@@ -60,8 +60,6 @@
 
 			{% if value %}
 				<p style="text-align:right; margin-right: 44px;"> {{ value }} </p>
-			{% else %}
-				<p style="text-align:right; margin-right: 44px;"> <a href="/login"> Login</a></p>
 			{% endif %}
 
 			</div>
@@ -72,6 +70,12 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="/movies">Movies</a></li>
 				<li>About</li>
+				
+				{% if value %}
+				<li style="color: red; margin-top: 10px"><a href="https://api.facebook.com/restserver.php?method=auth.expireSession&format=json&access_token=<access_token>">Logout</a></li>
+				{% else %}
+				<li style=" margin-top: 10px;"><a href="/login">Login</a></li>
+				{% endif %}
 			</ul>
 		</div>
 		<div id="content"></div>
