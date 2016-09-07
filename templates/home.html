@@ -2,10 +2,64 @@
 <html>
 <head>
 	<title>IMDB MOVIE PAGE</title>
+	<style type="text/css">
+			
+			#webpage{
+				width: 720px;
+				margin-left: auto;
+				margin-right: auto;
+				overflow: hidden;
+				border-style: dotted;
+			}
+
+			#header{
+				width: 100%;
+				margin-bottom: 5px;
+				border-style: dotted;
+				border-color: red;
+			}
+
+			#menu{
+
+				float: left;
+				border-style: dotted;
+				width: 120px;
+				margin: 10px;
+			}
+
+			#content{
+				float: left;
+				border-color: red;
+				border-style: dotted;
+				margin: 10px;
+				width: 520px;
+			}
+
+			ul, li{
+				list-style: none;
+			}
+
+
+	</style>
 </head>
 <body>
 
-	<h1> Welcome to IMDB movie page </h1>
+	<div id="webpage"> 
+		<div id="header">
+			<div>
+				<p style="text-align:right; margin-right: 44px;"> Login</p>
+			</div>
+			
+		</div>
+		<div id="menu">
+			<li>
+				<ul>Home</ul>
+				<ul>Movies</ul>
+				<ul>About</ul>
+			</li>
+		</div>
+		<div id="content"></div>
+	</div>
 
 </body>
 </html>
