@@ -56,7 +56,6 @@ def get_facebook_oauth_token():
 
 @app.route("/logout")
 def logout():
-
     return render_template("home.html")
 
 

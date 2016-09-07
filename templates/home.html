@@ -30,6 +30,17 @@
 				margin: 10px;
 				width: 520px;
 			}
+			.blogg{
+
+				background-color: silver;
+				margin-left: 2px;
+				margin-top: 1px;
+			}
+			.blogg_text{
+				margin-left: 10px;
+				margin-top: 3px;
+
+			}
 			ul{
 				list-style: none;
 			}
@@ -72,13 +83,22 @@
 				<li>About</li>
 				
 				{% if value %}
-				<li style="color: red; margin-top: 10px"><a href="https://api.facebook.com/restserver.php?method=auth.expireSession&format=json&access_token=<access_token>">Logout</a></li>
+				<li style="color: red; margin-top: 10px"> (X) Logout</li>
 				{% else %}
 				<li style=" margin-top: 10px;"><a href="/login">Login</a></li>
 				{% endif %}
 			</ul>
 		</div>
-		<div id="content"></div>
+		<div id="content">
+			<div class="blogg"> 
+				<h2 class="blogg_text"> We now got facebook login! </h2>
+				<p class="blogg_text"> We now got facebook login, using OAuth and facebook api </p>
+			</div>
+			<div class="blogg"> 
+				<h2 class="blogg_text"> Welcome to imdb site 1.0 </h2>
+				<p class="blogg_text"> This is a project created with flask and python </p>
+			</div>
+		</div>
 	</div>
 
 </body>
