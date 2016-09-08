@@ -58,11 +58,34 @@
 				color: inherit;
 				text-decoration: none;
 				font: Arial black;
-			 } 
-
-			
+			 }
+			 input[type=text] {
+			 	margin:10px;
+			    width: 80%;
+			    box-sizing: border-box;
+			    border: 2px solid #ccc;
+			    border-radius: 4px;
+			    font-size: 16px;
+			    background-color: white;
+			    background-image: url('searchicon.png');
+			    background-position: 10px 10px;
+			    background-repeat: no-repeat;
+			    padding: 12px 20px 12px 40px;
+			    -webkit-transition: width 0.4s ease-in-out;
+			    transition: width 0.4s ease-in-out;
+			}
 
 	</style>
+	<script type="text/javascript">
+		
+		function search(){
+			var value = document.getElementById("search").value;
+			window.location.href='/movie/'+value
+
+		}
+
+	</script>
+
 </head>
 <body>
 
@@ -83,7 +106,14 @@
 			</ul>
 		</div>
 		<div id="content">
+			<div>
+				
+				<input style="float:left;" type="text" name="search" id="search" placeholder="Enter movie title.."> 
+				<input style="float:right; margin-top:10px; height:47px; " type="submit" value="Submit" onclick="search()">
+	
 
+			</div>
+			
 			{% for x in movies %}
 				<div class="movie"> <p> {{ x }} </p> </div>
 			{% endfor %}

@@ -40,10 +40,7 @@ def movies():
 		flash('You are logged in')
 		return render_template("movies.html")
 
-	ia = IMDb()
-	s_result = ia.search_movie('X')
-	
-	return render_template("movies.html", movies=s_result)
+	return render_template("movies.html")
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -61,6 +58,15 @@ def login():
 def logout():
 	session.pop('logged_in', None)
 	return redirect(url_for('home'))
+
+
+@app.route('/movie/<search_text>', methods=['GET'])
+def ajax(search_text):
+	ia = IMDb()
+	s_result = ia.search_movie(search_text)
+	
+	return render_template("movies.html", movies=s_result)
+
 
 
 '''
