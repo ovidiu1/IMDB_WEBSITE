@@ -61,11 +61,24 @@ def logout():
 
 
 @app.route('/movie/<search_text>', methods=['GET'])
-def ajax(search_text):
+def movie_search(search_text):
 	ia = IMDb()
 	s_result = ia.search_movie(search_text)
 	
 	return render_template("movies.html", movies=s_result)
+
+@app.route('/movie/id/<search_text>', methods=['GET'])
+def movie_id(search_text):
+
+	ia = IMDb()
+	s_result = ia.get_movie(search_text)
+	movie = s_result['title']
+	url = s_result['cover url']
+
+
+
+	
+	return render_template("movie_view.html", movie_view=movie, url=url)
 
 
 
