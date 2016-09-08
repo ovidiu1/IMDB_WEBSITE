@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, session, request, session, flash
 from flask_oauth import OAuth
 from functools import wraps
+from imdb import IMDb
+
 
 app = Flask(__name__)
 app.secret_key = 'secret key'
@@ -23,9 +25,6 @@ def home():
 	else:
 		return render_template("home.html")
 
-    
-
-
 @app.route("/blog")
 @login_required
 def blog():
@@ -40,8 +39,11 @@ def movies():
 	if 'logged_in' in session:
 		flash('You are logged in')
 		return render_template("movies.html")
-	else:
-		return render_template("movies.html")
+
+	ia = IMDb()
+	s_result = ia.search_movie('X')
+	
+	return render_template("movies.html", movies=s_result)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -59,6 +61,7 @@ def login():
 def logout():
 	session.pop('logged_in', None)
 	return redirect(url_for('home'))
+
 
 '''
 

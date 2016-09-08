@@ -83,12 +83,11 @@
 			</ul>
 		</div>
 		<div id="content">
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
+
+			{% for x in movies %}
+				<div class="movie"> <p> {{ x }} </p> </div>
+			{% endfor %}
+			
 
 
 
