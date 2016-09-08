@@ -1,5 +1,66 @@
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request, session, flash
 from flask_oauth import OAuth
+from functools import wraps
+
+app = Flask(__name__)
+app.secret_key = 'secret key'
+
+def login_required(f):
+	@wraps(f)
+	def wrap(*args, **kwargs):
+		if 'logged_in' in session:
+			return f(*args, **kwargs)
+		else:
+			flash('You need to login to view this page.')
+			return redirect(url_for('login'))
+	return wrap
+
+@app.route("/")
+def home():
+	if 'logged_in' in session:
+		flash('You are logged in')
+		return render_template("home.html")
+	else:
+		return render_template("home.html")
+
+    
+
+
+@app.route("/blog")
+@login_required
+def blog():
+	if 'logged_in' in session:
+		flash('You are logged in')
+		return render_template("blog.html")
+	else:
+		return render_template("blog.html")
+
+@app.route("/movies")
+def movies():
+	if 'logged_in' in session:
+		flash('You are logged in')
+		return render_template("movies.html")
+	else:
+		return render_template("movies.html")
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	error = None
+	if request.method == 'POST':
+		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+			error = 'Invalid credentials. Please try again.'
+		else:
+			session['logged_in'] = True
+			return redirect(url_for('home'))
+	return render_template('login.html', error=error)
+
+@app.route('/logout')
+def logout():
+	session.pop('logged_in', None)
+	return redirect(url_for('home'))
+
+'''
 
 SECRET_KEY = 'development key'
 DEBUG = True
@@ -20,14 +81,6 @@ facebook = oauth.remote_app('facebook',
     consumer_secret=FACEBOOK_APP_SECRET,
     request_token_params={'scope': 'email'}
 )
-
-@app.route("/")
-def home():
-    return render_template("home.html")
-
-@app.route("/movies")
-def movies():
-    return render_template("movies.html")
 
 @app.route('/login')
 def login():
@@ -53,12 +106,7 @@ def facebook_authorized(resp):
 @facebook.tokengetter
 def get_facebook_oauth_token():
     return session.get('oauth_token')
-
-@app.route("/logout")
-def logout():
-    return render_template("home.html")
-
-
+'''
 
 if __name__ == "__main__":
     app.run()

@@ -30,18 +30,16 @@
 				margin-left: 6px;
 				width: 550px;
 			}
-			.movie{
+			.blogg{
 
-				border-style: solid;
-				float: left;
-				width: 120px;
-				height: 150px;
-				margin-left: 10px;
-				margin-top: 10px;
-
+				background-color: silver;
+				margin-left: 2px;
+				margin-top: 1px;
 			}
-			.movie:hover{
-				background-color: grey;
+			.blogg_text{
+				margin-left: 10px;
+				margin-top: 3px;
+
 			}
 			ul{
 				list-style: none;
@@ -52,6 +50,7 @@
 			}
 			li:hover{
 				list-style: circle;
+
 			}
 
 			a { 
@@ -77,21 +76,21 @@
 		<div id="menu">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li style="list-style: circle"><a href="/movies">Movies</a></li>
-				<li><a href="/blog">Blog</a></li>
+				<li><a href="/movies">Movies</a></li>
+				<li style="list-style: circle;"><a href="/blog">Blog</a></li>
+
 
 			</ul>
 		</div>
 		<div id="content">
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-			<div class="movie"> </div>
-
-
-
+			<div class="blogg"> 
+				<h2 class="blogg_text"> We now got facebook login! </h2>
+				<p class="blogg_text"> We now got facebook login, using OAuth and facebook api </p>
+			</div>
+			<div class="blogg"> 
+				<h2 class="blogg_text"> Welcome to imdb site 1.0 </h2>
+				<p class="blogg_text"> This is a project created with flask and python </p>
+			</div>
 		</div>
 	</div>
 

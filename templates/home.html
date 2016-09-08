@@ -27,8 +27,8 @@
 				float: left;
 				border-color: red;
 				border-style: dotted;
-				margin: 10px;
-				width: 520px;
+				margin-left: 6px;
+				width: 550px;
 			}
 			.blogg{
 
@@ -67,37 +67,27 @@
 
 	<div id="webpage"> 
 		<div id="header">
-			<div>
-
-			{% if value %}
-				<p style="text-align:right; margin-right: 44px;"> {{ value }} </p>
-			{% endif %}
-
+			<div style="text-align: right; margin-right:20px;">
+				{% for message in get_flashed_messages() %}
+					{{ message }} <p style="color:red;"><a href="/logout"> Logout </a></p>
+				{% endfor %}
 			</div>
 			
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="/">Home</a></li>
+				<li style="list-style: circle;"><a href="/">Home</a></li>
 				<li><a href="/movies">Movies</a></li>
-				<li>About</li>
-				
-				{% if value %}
-				<li style="color: red; margin-top: 10px"> (X) Logout</li>
-				{% else %}
-				<li style=" margin-top: 10px;"><a href="/login">Login</a></li>
-				{% endif %}
+				<li><a href="/blog">Blog</a></li>
+
 			</ul>
 		</div>
 		<div id="content">
-			<div class="blogg"> 
-				<h2 class="blogg_text"> We now got facebook login! </h2>
-				<p class="blogg_text"> We now got facebook login, using OAuth and facebook api </p>
+			<div class="blog"> 
+				<h2 class="blogg_text"> Welcome to imdb movie site </h2>
+				<p class="blogg_text"> This is a simple project for education purposes. The idea is that you as a person can create your own personal movie collection with the best movies. To do this we use a imdb API together with facebook login and flask framework to create the best experience for you.</p>
 			</div>
-			<div class="blogg"> 
-				<h2 class="blogg_text"> Welcome to imdb site 1.0 </h2>
-				<p class="blogg_text"> This is a project created with flask and python </p>
-			</div>
+			
 		</div>
 	</div>
 
