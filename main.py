@@ -26,7 +26,6 @@ def home():
 		return render_template("home.html")
 
 @app.route("/blog")
-@login_required
 def blog():
 	if 'logged_in' in session:
 		flash('You are logged in')
