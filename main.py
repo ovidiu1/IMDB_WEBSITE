@@ -60,7 +60,7 @@ def logout():
 	return redirect(url_for('home'))
 
 
-@app.route('/movie/<search_text>', methods=['GET'])
+@app.route('/movie/search=<search_text>', methods=['GET'])
 def movie_search(search_text):
 	#ia = IMDb()
 	#s_result = ia.search_movie(search_text)
