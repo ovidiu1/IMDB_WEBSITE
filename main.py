@@ -3,8 +3,6 @@ from flask_oauth import OAuth
 from functools import wraps
 import omdb
 
-
-
 app = Flask(__name__)
 app.secret_key = 'secret key'
 
@@ -133,7 +131,7 @@ def get_facebook_oauth_token():
 '''
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 
