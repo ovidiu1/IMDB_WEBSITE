@@ -30,6 +30,7 @@
 				margin-left: 6px;
 				width: 550px;
 			}
+
 			.movie{
 
 				border-style: solid;
@@ -38,6 +39,12 @@
 				height: 150px;
 				margin-left: 10px;
 				margin-top: 10px;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				background-image: url("http://www.kinotv.com/thumbs/poster/poster-not-available.jpg")
+
 
 			}
 			.movie:hover{
@@ -74,6 +81,8 @@
 			    -webkit-transition: width 0.4s ease-in-out;
 			    transition: width 0.4s ease-in-out;
 			}
+
+
 
 	</style>
 	<script type="text/javascript">
@@ -121,7 +130,7 @@
 			</div>
 			
 			{% for x in movies %}
-				<div class="movie" onclick="search_id({{ x.movieID }})"><p> {{ x }} </p> </div>
+				<div class="movie"> <img src="{{x.poster}}" style="width:100%; height:100%;  "></div>
 			{% endfor %}
 			
 

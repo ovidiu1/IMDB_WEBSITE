@@ -1,10 +1,6 @@
-from imdb import IMDb
+import omdb
 
+movie = omdb.search('test')
 
-ia = IMDb()
+print movie
 
-s_result = ia.search_movie('The Untouchables')
-
-# Print the long imdb canonical title and movieID of the results.
-for item in s_result:
-   print item['long imdb canonical title'], item.movieID
